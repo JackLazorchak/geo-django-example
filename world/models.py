@@ -23,6 +23,98 @@ class WorldBorder(models.Model):
     def __str__(self):
         return self.name
 
+class PhiladelphiaBusinessLicenses(models.Model):
+    objectid = models.IntegerField(null=True, blank=True)
+    addressobj = models.FloatField(null=True, blank=True)
+    address = models.CharField(max_length=41, null=True, blank=True)
+    unit_type = models.CharField(max_length=4, null=True, blank=True)
+    unit_num = models.CharField(max_length=12, null=True, blank=True)
+    zip = models.CharField(max_length=10, null=True, blank=True)
+    censustrac = models.CharField(max_length=6, null=True, blank=True)
+    parcel_id_field = models.CharField(max_length=20, null=True, blank=True)
+    opa_accoun = models.CharField(max_length=9, null=True, blank=True)
+    opa_owner = models.CharField(max_length=82, null=True, blank=True)
+    licensenum = models.CharField(max_length=6, null=True, blank=True)
+    revenuecod = models.CharField(max_length=4, null=True, blank=True)
+    licensetyp = models.CharField(max_length=50, null=True, blank=True)
+    rentalcate = models.CharField(max_length=30, null=True, blank=True)
+    initialiss = models.DateField(null=True, blank=True)
+    mostrecent = models.DateField(null=True, blank=True)
+    expiration = models.DateField(null=True, blank=True)
+    inactiveda = models.DateField(null=True, blank=True)
+    licensesta = models.CharField(max_length=9, null=True, blank=True)
+    numberofun = models.FloatField(null=True, blank=True)
+    owneroccup = models.CharField(max_length=3, null=True, blank=True)
+    legalfirst = models.CharField(max_length=36, null=True, blank=True)
+    legallastn = models.CharField(max_length=49, null=True, blank=True)
+    legalname = models.CharField(max_length=80, null=True, blank=True)
+    legalentit = models.CharField(max_length=10, null=True, blank=True)
+    business_n = models.CharField(max_length=83, null=True, blank=True)
+    business_m = models.CharField(max_length=106, null=True, blank=True)
+    ownerconta = models.CharField(max_length=69, null=True, blank=True)
+    ownercon_1 = models.CharField(max_length=46, null=True, blank=True)
+    ownercon_2 = models.CharField(max_length=27, null=True, blank=True)
+    ownercon_3 = models.CharField(max_length=2, null=True, blank=True)
+    ownercon_4 = models.CharField(max_length=10, null=True, blank=True)
+    ownercon_5 = models.CharField(max_length=48, null=True, blank=True)
+    ownercon_6 = models.CharField(max_length=99, null=True, blank=True)
+    ownercon_7 = models.CharField(max_length=20, null=True, blank=True)
+    ownercon_8 = models.CharField(max_length=2, null=True, blank=True)
+    ownercon_9 = models.CharField(max_length=10, null=True, blank=True)
+    geocode_x = models.FloatField(null=True, blank=True)
+    geocode_y = models.FloatField(null=True, blank=True)
+    council_di = models.CharField(max_length=2, null=True, blank=True)
+    posse_jobi = models.CharField(max_length=9, null=True, blank=True)
+    geom = models.MultiPointField()
+
+
+class PhiladelphiaBeverageTax(models.Model):
+    registrati = models.CharField(max_length=22, null=True, blank=True)
+    doing_busi = models.CharField(max_length=58, null=True, blank=True)
+    street_add = models.CharField(max_length=56, null=True, blank=True)
+    city = models.CharField(max_length=19, null=True, blank=True)
+    state = models.CharField(max_length=2, null=True, blank=True)
+    zip_code = models.CharField(max_length=10, null=True, blank=True)
+    phone_numb = models.CharField(max_length=10, null=True, blank=True)
+    phone_exte = models.CharField(max_length=5, null=True, blank=True)
+    website = models.CharField(max_length=45, null=True, blank=True)
+    geom = models.MultiLineStringField(srid=-1)
+
+
+class PhiladelphiaStreetPoles(models.Model):
+    objectid = models.IntegerField(null=True, blank=True)
+    oid = models.IntegerField(null=True, blank=True)
+    pole_num = models.IntegerField(null=True, blank=True)
+    type = models.CharField(max_length=4, null=True, blank=True)
+    nlumin = models.IntegerField(null=True, blank=True)
+    lum_size = models.IntegerField(null=True, blank=True)
+    height = models.IntegerField(null=True, blank=True)
+    pole_date = models.DateField(null=True, blank=True)
+    up_date = models.DateField(null=True, blank=True)
+    owner = models.CharField(max_length=9, null=True, blank=True)
+    tap_id = models.IntegerField(null=True, blank=True)
+    block = models.CharField(max_length=7, null=True, blank=True)
+    plate = models.CharField(max_length=4, null=True, blank=True)
+    geom = models.MultiPointField()
+
+
+class PhiladelphiaBuildingCerts(models.Model):
+    objectid = models.IntegerField(null=True, blank=True)
+    address = models.CharField(max_length=33, null=True, blank=True)
+    unit_type = models.CharField(max_length=3, null=True, blank=True)
+    unit_num = models.CharField(max_length=10, null=True, blank=True)
+    zip = models.CharField(max_length=10, null=True, blank=True)
+    buildingce = models.CharField(max_length=14, null=True, blank=True)
+    building_1 = models.CharField(max_length=49, null=True, blank=True)
+    inspection = models.DateField(null=True, blank=True)
+    inspecti_1 = models.CharField(max_length=16, null=True, blank=True)
+    expiration = models.DateField(null=True, blank=True)
+    bin = models.CharField(max_length=7, null=True, blank=True)
+    contractor = models.CharField(max_length=52, null=True, blank=True)
+    contract_1 = models.CharField(max_length=104, null=True, blank=True)
+    council_di = models.CharField(max_length=2, null=True, blank=True)
+    posse_jobi = models.CharField(max_length=9, null=True, blank=True)
+    geom = models.MultiLineStringField()
 
 
 class InvasivePlant(models.Model):
@@ -38,6 +130,7 @@ class InvasivePlant(models.Model):
     fs_unit_na = models.CharField(max_length=53, null=True, blank=True)
     crc_value = models.CharField(max_length=16, null=True, blank=True)
     geom = models.MultiPolygonField()
+
 
 class MontgomeryCountyWatershed(models.Model):
     objectid = models.IntegerField(null=True, blank=True)
@@ -67,7 +160,6 @@ class MontgomeryCountyGeology(models.Model):
     shape_are = models.FloatField(null=True, blank=True)
     shape_len = models.FloatField(null=True, blank=True)
     geom = models.MultiPolygonField()
-
 
 
 class MontgomeryCountyParcel(models.Model):

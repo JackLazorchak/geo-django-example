@@ -1,7 +1,7 @@
 from django.contrib.gis import admin
 from django.contrib.gis.admin import GISModelAdmin
 from .models import WorldBorder, MontgomeryCountyParcel, MontgomeryCountyGeology, MontgomeryCountyWatershed, \
-    InvasivePlant
+    InvasivePlant, PhiladelphiaBusinessLicenses
 
 
 class MontgomeryCountyParcelAdmin(GISModelAdmin):
@@ -28,8 +28,14 @@ class InvasivePlantAdmin(GISModelAdmin):
     ordering = ['-date_colle']
 
 
+class PhiladelphiaBusinessLicensesAdmin(GISModelAdmin):
+    search_fields = ['address']
+    list_display = ['address']
+
+
 admin.site.register(WorldBorder, GISModelAdmin)
 admin.site.register(InvasivePlant, InvasivePlantAdmin)
 admin.site.register(MontgomeryCountyParcel, MontgomeryCountyParcelAdmin)
 admin.site.register(MontgomeryCountyGeology, MontgomeryCountyGeologyAdmin)
 admin.site.register(MontgomeryCountyWatershed, MontgomeryCountyWatershedAdmin)
+admin.site.register(PhiladelphiaBusinessLicenses, PhiladelphiaBusinessLicensesAdmin)

@@ -1,7 +1,8 @@
 from pathlib import Path
 from django.contrib.gis.utils import LayerMapping
 from .models import WorldBorder, MontgomeryCountyParcel, MontgomeryCountyGeology, MontgomeryCountyWatershed, \
-    InvasivePlant
+    InvasivePlant, PhiladelphiaBusinessLicenses, PhiladelphiaBeverageTax, PhiladelphiaStreetPoles, \
+    PhiladelphiaBuildingCerts
 from django.db import transaction
 
 world_mapping = {
@@ -211,6 +212,112 @@ invasiveplant_mapping = {
 invasiveplant_shp = Path(
     __file__).resolve().parent / 'data' / 'Current_Invasive_Plants_(Feature_Layer)' / 'Current_Invasive_Plants_(Feature_Layer).shp'
 
+philadelphiabusinesslicenses_mapping = {
+    'objectid': 'objectid',
+    'addressobj': 'addressobj',
+    'address': 'address',
+    'unit_type': 'unit_type',
+    'unit_num': 'unit_num',
+    'zip': 'zip',
+    'censustrac': 'censustrac',
+    'parcel_id_field': 'parcel_id_',
+    'opa_accoun': 'opa_accoun',
+    'opa_owner': 'opa_owner',
+    'licensenum': 'licensenum',
+    'revenuecod': 'revenuecod',
+    'licensetyp': 'licensetyp',
+    'rentalcate': 'rentalcate',
+    'initialiss': 'initialiss',
+    'mostrecent': 'mostrecent',
+    'expiration': 'expiration',
+    'inactiveda': 'inactiveda',
+    'licensesta': 'licensesta',
+    'numberofun': 'numberofun',
+    'owneroccup': 'owneroccup',
+    'legalfirst': 'legalfirst',
+    'legallastn': 'legallastn',
+    'legalname': 'legalname',
+    'legalentit': 'legalentit',
+    'business_n': 'business_n',
+    'business_m': 'business_m',
+    'ownerconta': 'ownerconta',
+    'ownercon_1': 'ownercon_1',
+    'ownercon_2': 'ownercon_2',
+    'ownercon_3': 'ownercon_3',
+    'ownercon_4': 'ownercon_4',
+    'ownercon_5': 'ownercon_5',
+    'ownercon_6': 'ownercon_6',
+    'ownercon_7': 'ownercon_7',
+    'ownercon_8': 'ownercon_8',
+    'ownercon_9': 'ownercon_9',
+    'geocode_x': 'geocode_x',
+    'geocode_y': 'geocode_y',
+    'council_di': 'council_di',
+    'posse_jobi': 'posse_jobi',
+    'geom': 'MULTIPOINT',
+}
+philadelphiabusinesslicenses_shp = Path(
+    __file__).resolve().parent / 'data' / 'business_licenses' / 'business_licenses.shp'
+
+philadelphiabeveragetax_mapping = {
+    'registrati': 'registrati',
+    'doing_busi': 'doing_busi',
+    'street_add': 'street_add',
+    'city': 'city',
+    'state': 'state',
+    'zip_code': 'zip_code',
+    'phone_numb': 'phone_numb',
+    'phone_exte': 'phone_exte',
+    'website': 'website',
+    'geom': 'MULTILINESTRING',
+}
+
+philadelphiabeveragetax_shp = Path(
+    __file__).resolve().parent / 'data' / 'beverage_tax_registration_data5' / 'beverage_tax_registration_data5.shp'
+
+# Auto-generated `LayerMapping` dictionary for PhiladelphiaStreetPoles model
+philadelphiastreetpoles_mapping = {
+    'objectid': 'OBJECTID',
+    'oid': 'OID',
+    'pole_num': 'POLE_NUM',
+    'type': 'TYPE',
+    'nlumin': 'NLUMIN',
+    'lum_size': 'LUM_SIZE',
+    'height': 'HEIGHT',
+    'pole_date': 'POLE_DATE',
+    'up_date': 'UP_DATE',
+    'owner': 'OWNER',
+    'tap_id': 'TAP_ID',
+    'block': 'BLOCK',
+    'plate': 'PLATE',
+    'geom': 'MULTIPOINT',
+}
+
+philadelphiastreetpoles_shp = Path(
+    __file__).resolve().parent / 'data' / 'Street_Poles' / 'Street_Poles.shp'
+
+philadelphiabuildingcerts_mapping = {
+    'objectid': 'OBJECTID',
+    'address': 'ADDRESS',
+    'unit_type': 'UNIT_TYPE',
+    'unit_num': 'UNIT_NUM',
+    'zip': 'ZIP',
+    'buildingce': 'BUILDINGCE',
+    'building_1': 'BUILDING_1',
+    'inspection': 'INSPECTION',
+    'inspecti_1': 'INSPECTI_1',
+    'expiration': 'EXPIRATION',
+    'bin': 'BIN',
+    'contractor': 'CONTRACTOR',
+    'contract_1': 'CONTRACT_1',
+    'council_di': 'COUNCIL_DI',
+    'posse_jobi': 'POSSE_JOBI',
+    'geom': 'MULTILINESTRING',
+}
+
+philadelphiabuildingcerts_shp = Path(
+    __file__).resolve().parent / 'data' / 'BUILDING_CERTS' / 'BUILDING_CERTS.shp'
+
 mapping_mapping = {
     'WorldBorder': {
         'mapping': world_mapping,
@@ -236,6 +343,26 @@ mapping_mapping = {
         'mapping': invasiveplant_mapping,
         'file': invasiveplant_shp,
         'model': InvasivePlant
+    },
+    'PhiladelphiaBusinessLicenses': {
+        'mapping': philadelphiabusinesslicenses_mapping,
+        'file': philadelphiabusinesslicenses_shp,
+        'model': PhiladelphiaBusinessLicenses
+    },
+    'PhiladelphiaBeverageTax': {
+        'mapping': philadelphiabeveragetax_mapping,
+        'file': philadelphiabeveragetax_shp,
+        'model': PhiladelphiaBeverageTax
+    },
+    'PhiladelphiaStreetPoles': {
+        'mapping': philadelphiastreetpoles_mapping,
+        'file': philadelphiastreetpoles_shp,
+        'model': PhiladelphiaStreetPoles
+    },
+    'PhiladelphiaBuildingCerts': {
+        'mapping': philadelphiabuildingcerts_mapping,
+        'file': philadelphiabuildingcerts_shp,
+        'model': PhiladelphiaBuildingCerts
     }
 }
 

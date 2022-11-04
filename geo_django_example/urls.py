@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 
-from world.views import InvasivePlantViewSet
+from world.views import InvasivePlantViewSet, MapView, get_map_stuff_api
 
 router = routers.DefaultRouter()
 router.register(r'invasive-plant', InvasivePlantViewSet)
 
 urlpatterns = [
+    path('api/', include(router.urls)),
+    path('api/map-stuff', get_map_stuff_api, name='map-stuff'),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include(router.urls)),
+    path("map/", MapView.as_view()),
 ]
